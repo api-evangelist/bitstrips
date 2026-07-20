@@ -1,0 +1,45 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/Bitmoji/BitmojiForDevelopers/blob/main/docs/DIRECT_AUTH_FOR_DEVELOPERS.md
+docs: https://github.com/Bitmoji/BitmojiForDevelopers
+summary:
+  types:
+  - oauth2
+  - http
+  oauth2_flows:
+  - authorizationCode
+  pkce: required
+  bearer_tokens: true
+notes: >-
+  Bitmoji Direct authorization is a standard OAuth2 authorization-code flow with
+  PKCE (S256) required. Apps must be registered in the Snap Kit Developer portal
+  (an Org and an App). Access tokens expire in 1 hour; refresh tokens expire in
+  90 days. API requests carry the token as `Authorization: Bearer <access_token>`.
+  Named OAuth scopes are not published in the developer docs; authorization grants
+  access to avatar data, sticker packs, and search. Snap has deprecated the
+  "Bitmoji For Identity" product.
+schemes:
+- name: BitmojiDirectOAuth2
+  type: oauth2
+  description: >-
+    OAuth2 authorization code flow with PKCE (S256). Authorization is initiated
+    at www.bitmoji.com/connect; tokens are exchanged and refreshed at the Snap
+    token endpoint.
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://www.bitmoji.com/connect/
+    tokenUrl: https://bitmoji.api.snapchat.com/direct/token
+    refreshUrl: https://bitmoji.api.snapchat.com/direct/token
+    revocationUrl: https://bitmoji.api.snapchat.com/direct/token/revoke
+    pkce: S256
+    scopes: {}
+  sources:
+  - https://github.com/Bitmoji/BitmojiForDevelopers/blob/main/docs/DIRECT_AUTH_FOR_DEVELOPERS.md
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: >-
+    API requests to bitmoji.api.snapchat.com/direct authenticate with the OAuth2
+    access token as an HTTP bearer token (`Authorization: Bearer <access_token>`).
+  sources:
+  - https://github.com/Bitmoji/BitmojiForDevelopers/blob/main/docs/DIRECT_AUTH_FOR_DEVELOPERS.md
