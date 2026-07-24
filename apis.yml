@@ -1,8 +1,29 @@
 aid: bitstrips
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bitstrips.png
 name: Bitstrips
-description: 'Bitstrips is a company surfaced as a portfolio company of kleiner-perkins and added to the
-  API Evangelist network as a stub for enrichment. Sector: consumer. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: 'Bitstrips was a Toronto-based consumer software company, founded in 2007
+  by Jacob "Ba" Blackstock, that created the personalized comic platform Bitstrips and
+  the personal-avatar app Bitmoji. Snap Inc. acquired Bitstrips in March 2016, retired
+  the original Bitstrips comic product, and now operates the technology as Bitmoji.
+  The public developer surface today is the Bitmoji Direct API (Bitmoji for Developers):
+  an OAuth2 authorization-code-with-PKCE flow via www.bitmoji.com/connect that grants
+  third-party apps access to a user''s avatar ID, sticker packs, and sticker search,
+  served from bitmoji.api.snapchat.com/direct. Note that Snap has deprecated the
+  "Bitmoji For Identity" product; the standalone stickers and search integrations
+  remain documented. This profile was surfaced as a Kleiner Perkins portfolio company
+  and enriched from the public Bitmoji developer documentation.'
 url: https://raw.githubusercontent.com/api-evangelist/bitstrips/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,13 +33,58 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Consumer
-apis: []
+- Avatars
+- Stickers
+- Bitmoji
+- Messaging
+- Images
+- OAuth
+- Social
+apis:
+- name: Bitmoji Direct API
+  description: 'OAuth2 (authorization code + PKCE) API for Bitmoji for Developers,
+    providing access to a connected user''s avatar ID, sticker packs, and sticker
+    search. Served from bitmoji.api.snapchat.com/direct with authorization initiated
+    at www.bitmoji.com/connect.'
+  humanURL: https://github.com/Bitmoji/BitmojiForDevelopers
+  baseURL: https://bitmoji.api.snapchat.com/direct/
+  tags:
+  - Avatars
+  - Stickers
+  - OAuth
+  properties:
+  - type: Authentication
+    url: authentication/bitstrips-authentication.yml
+  - type: Documentation
+    url: https://github.com/Bitmoji/BitmojiForDevelopers/blob/main/docs/DIRECT_AUTH_FOR_DEVELOPERS.md
+common:
+- type: DomainSecurity
+  url: security/bitstrips-domain-security.yml
+- type: Website
+  url: https://www.bitmoji.com
+- type: Documentation
+  url: https://github.com/Bitmoji/BitmojiForDevelopers
+- type: GitHubOrganization
+  url: https://github.com/Bitmoji
+- type: Authentication
+  url: authentication/bitstrips-authentication.yml
+- type: Conformance
+  url: conformance/bitstrips-conformance.yml
+- type: LLMsTxt
+  url: llms/bitstrips-llms.txt
+- type: WellKnown
+  url: well-known/bitstrips-well-known.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

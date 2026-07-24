@@ -1,0 +1,25 @@
+# Bitstrips (Bitmoji)
+
+> Bitstrips was a Toronto-based consumer software company (founded 2007) that created the Bitstrips comic platform and the Bitmoji personal-avatar app. Snap Inc. acquired Bitstrips in March 2016 and now operates the technology as Bitmoji. The public developer surface is the Bitmoji Direct API (Bitmoji for Developers): an OAuth2 authorization-code-with-PKCE flow granting access to a connected user's avatar ID, sticker packs, and sticker search. The "Bitmoji For Identity" product is deprecated.
+
+## APIs
+
+- [Bitmoji Direct API](https://github.com/Bitmoji/BitmojiForDevelopers): OAuth2 (auth code + PKCE) access to avatar, sticker packs, and search. Base: https://bitmoji.api.snapchat.com/direct/
+
+## Docs
+
+- [Bitmoji for Developers](https://github.com/Bitmoji/BitmojiForDevelopers): developer documentation repository
+- [Direct Authorization](https://github.com/Bitmoji/BitmojiForDevelopers/blob/main/docs/DIRECT_AUTH_FOR_DEVELOPERS.md): OAuth2 + PKCE flow, token lifecycle, avatar endpoint
+- [Bitmoji](https://www.bitmoji.com): product website
+
+## Authentication
+
+- OAuth2 authorization code flow with PKCE (S256), initiated at https://www.bitmoji.com/connect/
+- Token endpoint: https://bitmoji.api.snapchat.com/direct/token (access tokens 1h, refresh tokens 90d)
+- API calls use `Authorization: Bearer <access_token>`
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/bitstrips/refs/heads/main/authentication/bitstrips-authentication.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/bitstrips/refs/heads/main/conformance/bitstrips-conformance.yml)
+- [Domain Security](https://raw.githubusercontent.com/api-evangelist/bitstrips/refs/heads/main/security/bitstrips-domain-security.yml)
