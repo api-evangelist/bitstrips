@@ -41,6 +41,16 @@ tags:
 - Stickers
 - Bitmoji
 - Messaging
+- Image
+- Authentication
+- Social
+tags_raw:
+- Company
+- Consumer
+- Avatars
+- Stickers
+- Bitmoji
+- Messaging
 - Images
 - OAuth
 - Social
@@ -53,6 +63,10 @@ apis:
   humanURL: https://github.com/Bitmoji/BitmojiForDevelopers
   baseURL: https://bitmoji.api.snapchat.com/direct/
   tags:
+  - Avatars
+  - Stickers
+  - Authentication
+  tags_raw:
   - Avatars
   - Stickers
   - OAuth
